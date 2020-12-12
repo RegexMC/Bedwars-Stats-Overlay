@@ -1,0 +1,38 @@
+group 'org.example'
+version '0.1-Beta-2'
+
+buildscript {
+    repositories {
+        jcenter()
+        maven { url 'https://maven.google.com' }
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:6.1.0'
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+
+dependencies {
+    compile 'org.json:json:20200518'
+    compile 'commons-io:commons-io:2.8.0'
+    compile 'lc.kra.system:system-hook:3.8'
+    compile group: 'net.java.dev.jna', name: 'jna-platform', version: '5.6.0'
+}
+
+tasks.build.dependsOn(tasks.shadowJar)
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'me.regexmc.statsoverlay.Main',
+                'Build-By': 'RegexMC',
+                'Build-Jdk': System.getProperty('java.version')
+        )
+    }
+}

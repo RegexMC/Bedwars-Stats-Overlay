@@ -1,0 +1,10 @@
+gradlew
+gradlew.bat
+settings.gradle
+StatsOverlayConfig.json
+build/*
+out/*
+gradle/*
+.gradle/*
+.git/*
+.idea/*
