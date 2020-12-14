@@ -18,6 +18,8 @@ repositories {
 apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'java'
 
+sourceCompatibility = targetCompatibility = 1.8
+
 dependencies {
     compile 'org.json:json:20200518'
     compile 'commons-io:commons-io:2.8.0'
