@@ -16,18 +16,14 @@ public class CellRenderer extends DefaultTableCellRenderer {
 
         int level = Integer.parseInt(table.getValueAt(row, 1).toString());
 
-
         if(level==0) {
             this.setBackground(new Color(255, 10, 50));
             this.setForeground(new Color(255, 255, 255));
             return this;
         }
 
-
-
-//        if (column == 0) {
         double FKD = Double.parseDouble(table.getValueAt(row, 10).toString());
-        double index = level * FKD;
+        double index = level * Math.pow(FKD, 2);
 
         this.setValue(table.getValueAt(row, column));
         this.setForeground(getColor(index));
@@ -35,7 +31,6 @@ public class CellRenderer extends DefaultTableCellRenderer {
             this.setBackground(Color.decode("#4d4d4d"));
         } else {
             this.setBackground(Main.defaultCellColor);
-            //          }
         }
         return this;
     }
